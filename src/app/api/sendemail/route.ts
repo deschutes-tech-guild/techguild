@@ -1,8 +1,15 @@
 import * as aws from '@aws-sdk/client-ses';
 import { toByteArray } from 'base64-js';
+import * as fs from 'fs';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { createTransport } from 'nodemailer';
+import 'dotenv';
+
+fs.writeFileSync(
+  '.env',
+  `AWS_ACCESS_KEY_ID=${process.env.AWS_ACCESS_KEY_SES}\nAWS_SECRET_ACCESS_KEY=${process.env.AWS_SECRET_ACCESS_KEY_SES}\nBUS_EMAIL=${process.env.BUS_EMAIL}\n`
+);
 
 export async function POST(req: NextRequest) {
   const aws_access_key_id = process.env.AWS_ACCESS_KEY_SES;
