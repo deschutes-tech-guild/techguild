@@ -52,7 +52,7 @@ const ContactForm: NextPage = () => {
           <select
             name='contact_type'
             id='contact_type'
-            className='w-full border-2 border-gray-300 rounded-md'
+            className='w-full border-[1px] border-gray-600 rounded-md'
           >
             <option value='contactus'>Contact Us</option>
             <option value='speaker'>Give a Talk</option>
