@@ -47,12 +47,12 @@ export const metadata: Metadata = {
     ],
     // creator: '@th_clarence',
   },
-  // authors: [
-  //   {
-  //     name: 'Theodorus Clarence',
-  //     url: 'https://theodorusclarence.com',
-  //   },
-  // ],
+  authors: [
+    {
+      name: 'Bend DevOps',
+      url: 'https://benddevops.org',
+    },
+  ],
 };
 
 export default function RootLayout({
