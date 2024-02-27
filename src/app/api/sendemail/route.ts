@@ -8,6 +8,8 @@ export async function POST(req: NextRequest) {
   const aws_access_key_id = process.env.AWS_ACCESS_KEY_SES;
   const aws_secret_access_key = process.env.AWS_SECRET_ACCESS_KEY_SES;
   // eslint-disable-next-line no-console
+  console.log(aws_access_key_id, aws_secret_access_key);
+  // eslint-disable-next-line no-console
   console.log(JSON.stringify(process.env, null, 2));
   const body = await req.json();
 
