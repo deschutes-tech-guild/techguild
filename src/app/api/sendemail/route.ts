@@ -20,10 +20,10 @@ export async function POST(req: NextRequest) {
   if (!process.env.BUS_EMAIL) {
     return NextResponse.json('BUS_EMAIL not set', { status: 400 });
   }
-  if (!process.env.STUDIO_AWS_ACCESS_KEY_ID) {
+  if (!aws_access_key_id) {
     return NextResponse.json('AWS_ACCESS_KEY_SES not set', { status: 400 });
   }
-  if (!process.env.STUDIO_AWS_SECRET_ACCESS_KEY) {
+  if (!aws_secret_access_key) {
     return NextResponse.json('AWS_SECRET_ACCESS_KEY_SES not set', {
       status: 400,
     });
