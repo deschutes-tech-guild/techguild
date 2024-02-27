@@ -21,6 +21,7 @@ export default async function handler(
 ) {
   const aws_access_key_id = process.env.AWS_ACCESS_KEY_SES;
   const aws_secret_access_key = process.env.AWS_SECRET_ACCESS_KEY_SES;
+
   if (req.method === 'POST') {
     if (!req.body.name || !req.body.email || !req.body.message) {
       return res.status(400).json('Missing name, email, or message');
