@@ -37,6 +37,8 @@ export async function POST(req: NextRequest) {
         secretAccessKey: aws_secret_access_key,
       },
       region: 'us-west-2',
+      logger: console,
+      endpoint: 'https://email.us-west-2.amazonaws.com',
     },
   ]);
 
