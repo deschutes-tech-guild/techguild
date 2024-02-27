@@ -19,8 +19,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data | Response>
 ) {
-  const aws_access_key_id = process.env.AWS_ACCESS_KEY_ECS;
-  const aws_secret_access_key = process.env.AWS_SECRET_ACCESS_KEY_ECS;
+  const aws_access_key_id = process.env.AWS_ACCESS_KEY_SES;
+  const aws_secret_access_key = process.env.AWS_SECRET_ACCESS_KEY_SES;
   if (req.method === 'POST') {
     if (!req.body.name || !req.body.email || !req.body.message) {
       return res.status(400).json('Missing name, email, or message');
@@ -29,10 +29,10 @@ export default async function handler(
       return res.status(500).json('BUS_EMAIL not set');
     }
     if (!process.env.STUDIO_AWS_ACCESS_KEY_ID) {
-      return res.status(500).json('STUDIO_AWS_ACCESS_KEY_ID not set');
+      return res.status(500).json('AWS_ACCESS_KEY_SES not set');
     }
     if (!process.env.STUDIO_AWS_SECRET_ACCESS_KEY) {
-      return res.status(500).json('STUDIO_AWS_SECRET_ACCESS_KEY not set');
+      return res.status(500).json('AWS_SECRET_ACCESS_KEY_SES not set');
     }
     const ses = new aws.SES([
       {
