@@ -15,6 +15,8 @@ const nextConfig = {
   // },
 
   webpack(config) {
+    config.externals = config.externals || {};
+    config.externals['fsevents'] = 'fsevents';
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg')
