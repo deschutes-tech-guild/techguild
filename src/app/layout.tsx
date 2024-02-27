@@ -3,6 +3,8 @@ import * as React from 'react';
 
 import '@/styles/globals.css';
 
+import { openGraph } from '@/lib/og';
+
 import { siteConfig } from '@/constant/config';
 
 export const metadata: Metadata = {
@@ -24,7 +26,12 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.title,
-    images: [`${siteConfig.url}/images/og.jpg`],
+    images: [
+      openGraph({
+        siteName: siteConfig.title,
+        description: siteConfig.description,
+      }),
+    ],
     type: 'website',
     locale: 'en_US',
   },
@@ -32,7 +39,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [`${siteConfig.url}/images/og.jpg`],
+    images: [
+      openGraph({
+        siteName: siteConfig.title,
+        description: siteConfig.description,
+      }),
+    ],
     // creator: '@th_clarence',
   },
   // authors: [
