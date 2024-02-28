@@ -1,16 +1,15 @@
-import * as aws from '@aws-sdk/client-ses';
+import * as AWS from '@aws-sdk/client-ses';
+import {
+  type SendRawEmailCommandInput,
+  SendRawEmailCommand,
+} from '@aws-sdk/client-ses';
 import { toByteArray } from 'base64-js';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { createTransport } from 'nodemailer';
 
 export async function POST(req: NextRequest) {
   const aws_access_key_id = process.env.AWS_ACCESS_KEY_SES;
   const aws_secret_access_key = process.env.AWS_SECRET_ACCESS_KEY_SES;
-  process.env.AWS_ACCESS_KEY_ID = aws_access_key_id;
-  process.env.AWS_SECRET_ACCESS_KEY = aws_secret_access_key;
-  // eslint-disable-next-line no-console
-  console.log(JSON.stringify(process.env, null, 2));
   const body = await req.json();
 
   if (!body?.name || !body?.email || !body?.message) {
@@ -30,7 +29,8 @@ export async function POST(req: NextRequest) {
       status: 400,
     });
   }
-  const ses = new aws.SES([
+
+  const ses = new AWS.SES([
     {
       credentials: {
         accessKeyId: aws_access_key_id,
@@ -38,38 +38,35 @@ export async function POST(req: NextRequest) {
       },
       region: 'us-west-2',
       logger: console,
-      endpoint: 'https://email.us-west-2.amazonaws.com',
     },
   ]);
 
-  const transporter = createTransport({
-    SES: { ses, aws },
-  });
-
   const emailBody = loadTemplates('external');
 
-  const internalEmailBody = JSON.stringify(body, null, 2);
+  const rawEmail: SendRawEmailCommandInput = {
+    RawMessage: {
+      Data: toByteArray(
+        `From: ${process.env.BUS_EMAIL}\nTo: ${body.email}\nSubject: Thanks for reaching out to Bend DevOps!\n\n${emailBody}`
+      ),
+    },
+  };
+
+  // const internalEmailBody = JSON.stringify(body, null, 2);
+
+  const sendRawEmailCommand = new SendRawEmailCommand(rawEmail);
+  // eslint-disable-next-line no-console
+  console.log(sendRawEmailCommand);
 
   try {
-    const response = await transporter.sendMail({
-      from: process.env.BUS_EMAIL,
-      to: body.email,
-      cc: [process.env.BUS_EMAIL],
-      subject: `Thanks for reaching out to Bend DevOps!`,
-      html: emailBody,
-    });
-    const internalResponse = await transporter.sendMail({
-      from: process.env.BUS_EMAIL,
-      to: process.env.BUS_EMAIL,
-      subject: `New message from ${body.name} regarding ${body.contact_type}`,
-      html: internalEmailBody,
-    });
+    const response = ses.send(sendRawEmailCommand);
+    // eslint-disable-next-line no-console
+    console.log(response);
     return NextResponse.json(
       {
         name: body.name,
         email: body.email,
-        body: body.nessage,
-        emailResult: [response, internalResponse],
+        body: body.message,
+        emailResult: response,
       },
       { status: 200 }
     );
