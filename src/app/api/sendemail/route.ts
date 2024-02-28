@@ -1,11 +1,8 @@
-import * as AWS from '@aws-sdk/client-ses';
-import {
-  type SendRawEmailCommandInput,
-  SendRawEmailCommand,
-} from '@aws-sdk/client-ses';
+import * as AWS from 'aws-sdk';
 import { toByteArray } from 'base64-js';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import * as nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
   const aws_access_key_id = process.env.AWS_ACCESS_KEY_SES;
@@ -30,35 +27,49 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const ses = new AWS.SES([
-    {
-      credentials: {
-        accessKeyId: aws_access_key_id,
-        secretAccessKey: aws_secret_access_key,
-      },
-      region: 'us-west-2',
-      logger: console,
-    },
-  ]);
+  AWS.config.update({
+    accessKeyId: aws_access_key_id,
+    secretAccessKey: aws_secret_access_key,
+    region: 'us-west-2',
+  });
+
+  AWS.config.logger = console;
+
+  AWS.config.getCredentials((err) => {
+    if (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+      return NextResponse.json(err, { status: 500 });
+    }
+    // eslint-disable-next-line no-console
+    console.log('AWS Credentials:', AWS.config.credentials);
+  });
+
+  const ses = new AWS.SES({ apiVersion: '2010-12-01' });
 
   const emailBody = loadTemplates('external');
 
-  const rawEmail: SendRawEmailCommandInput = {
-    RawMessage: {
-      Data: toByteArray(
-        `From: ${process.env.BUS_EMAIL}\nTo: ${body.email}\nSubject: Thanks for reaching out to Bend DevOps!\n\n${emailBody}`
-      ),
-    },
-  };
+  const transporter = nodemailer.createTransport({
+    SES: { ses, aws: AWS },
+  });
 
-  // const internalEmailBody = JSON.stringify(body, null, 2);
-
-  const sendRawEmailCommand = new SendRawEmailCommand(rawEmail);
-  // eslint-disable-next-line no-console
-  console.log(sendRawEmailCommand);
+  const internalEmailBody = JSON.stringify(body, null, 2);
 
   try {
-    const response = ses.send(sendRawEmailCommand);
+    const response = await transporter.sendMail({
+      from: process.env.BUS_EMAIL,
+      to: body.email,
+      subject: 'Thank you for contacting us!',
+      html: emailBody,
+    });
+
+    const internalResponse = await transporter.sendMail({
+      from: process.env.BUS_EMAIL,
+      to: process.env.BUS_EMAIL,
+      subject: 'New message from website',
+      html: internalEmailBody,
+    });
+
     // eslint-disable-next-line no-console
     console.log(response);
     return NextResponse.json(
@@ -66,7 +77,7 @@ export async function POST(req: NextRequest) {
         name: body.name,
         email: body.email,
         body: body.message,
-        emailResult: response,
+        emailResult: [response, internalResponse],
       },
       { status: 200 }
     );
