@@ -57,9 +57,6 @@ export async function POST(req: NextRequest) {
   // eslint-disable-next-line no-console
   console.log(sendRawEmailCommand);
 
-  // eslint-disable-next-line no-debugger
-  debugger;
-
   try {
     const response = ses.send(sendRawEmailCommand);
     // eslint-disable-next-line no-console
