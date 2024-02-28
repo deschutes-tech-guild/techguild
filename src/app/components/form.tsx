@@ -32,6 +32,8 @@ const ContactForm: NextPage = () => {
     const result = await response.json();
     // eslint-disable-next-line no-console
     console.info(result);
+    // eslint-disable-next-line no-console
+    console.info(response);
     if (response.ok) {
       setEmailSent(true);
     }
