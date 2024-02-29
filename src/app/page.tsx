@@ -17,12 +17,18 @@ import Footer from '@/app/components/footer';
 import Form from '@/app/components/form';
 import Speaking from '@/app/components/speaking';
 import Sponsors from '@/app/components/sponsors';
+import selectBackground from '@/utils/selectBackground';
 
 export default function HomePage() {
+  const bgImage = selectBackground();
+
   return (
     <main>
-      <div className='bg-[url(/images/bg1.webp)] bg-fixed flex justify-center'>
-        <div className='bg-[#fff] sm:w-[35rem] sm:mt-10 mb-10 sm:p-[1.5rem] rounded-lg'>
+      <div
+        className='bg-fixed bg-cover flex justify-center'
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
+        <div className='bg-[#fff] sm:w-5/6 md:w-3/4 max-w-3xl sm:mt-10 mb-10 sm:p-[1.5rem] rounded-lg'>
           <Head>
             <title>Bend DevOps</title>
           </Head>
