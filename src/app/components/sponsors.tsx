@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Sponsors() {
   return (
-    <div className='sm:py-2 sm:my-2'>
+    <div className='sm:py-2 sm:my-2 max-w-2xl'>
       <div className=''>
         <h2 className='font-normal sm:py-2 text-2xl'>
           Bend DevOps is proudly sponsored by Snyk!
@@ -16,7 +16,7 @@ export default function Sponsors() {
             part? It's got a free-forever user plan for personal projects!
           </p>
         </div>
-        <div className='sm:py-2 my-5 mb-10 flex justify-center'>
+        <div className='sm:py-2 my-5 mb-10 md:py-1 flex justify-center'>
           <Link
             href='https://snyk.io/'
             target='_blank'
@@ -27,11 +27,11 @@ export default function Sponsors() {
               src='/images/snyk.png'
               alt='synk logo'
               height={500}
-              width={350}
+              width={375}
             />
           </Link>
         </div>
-        <div className='text-lg'>
+        <div className='text-lg '>
           <p>
             We welcome additional sponsors! If you're interested in supporting
             our meetup and connecting with our audience, drop us a note{' '}
