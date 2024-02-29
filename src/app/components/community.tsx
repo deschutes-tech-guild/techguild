@@ -15,7 +15,7 @@ export default function Community() {
             rel='noopener noreferrer'
           >
             <Image
-              className='py-2 my-5'
+              className='py-2 my-5 w-[auto] h-[auto]'
               src='/images/discord.png'
               alt='discord logo'
               width={350}
@@ -28,7 +28,7 @@ export default function Community() {
             rel='noopener noreferrer'
           >
             <Image
-              className='py-2 my-5'
+              className='py-2 my-5 w-[auto] h-[auto]'
               src='/images/meetup-bdo.png'
               alt='meetup logo'
               width={350}

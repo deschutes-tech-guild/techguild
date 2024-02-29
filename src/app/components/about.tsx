@@ -6,7 +6,7 @@ export default function About() {
     <div className=''>
       <div className=''>
         <Image
-          className=''
+          className='w-[auto] h-[auto]'
           src='/images/bdo-logo.webp'
           alt='Bend DevOps Logo'
           width={150}
