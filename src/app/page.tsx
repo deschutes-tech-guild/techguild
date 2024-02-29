@@ -17,7 +17,7 @@ import Footer from '@/app/components/footer';
 import Form from '@/app/components/form';
 import Speaking from '@/app/components/speaking';
 import Sponsors from '@/app/components/sponsors';
-import selectBackground from '@/utils/selectBackground';
+import selectBackground from '@/utils/useSelectBackground';
 
 export default function HomePage() {
   const bgImage = selectBackground();
