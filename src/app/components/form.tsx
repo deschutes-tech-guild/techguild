@@ -37,7 +37,7 @@ const ContactForm: NextPage = () => {
     }
   };
   return (
-    <div className='lg:max-w-[500px] mx-auto my-2 p-2'>
+    <div className='lg:max-w-[500px] mx-auto my-2 p-2' id='form'>
       {emailSent ? (
         <p>Thank you for your message. We will get back to you soon.</p>
       ) : (
