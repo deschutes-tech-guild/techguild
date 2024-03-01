@@ -27,7 +27,7 @@
   /* #endregion  /**======== Primary Color =========== */
 }
 
-* {
+body {
   @font-face {
     font-family: 'Fira Sans';
     font-style: normal;
