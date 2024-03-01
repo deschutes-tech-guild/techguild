@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+// Returns the width & height of the browser window, used for conditional rendering.
 export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState<{
     width: number | undefined;
