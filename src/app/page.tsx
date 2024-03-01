@@ -1,5 +1,6 @@
 'use client';
 
+import localFont from 'next/font/local';
 import Head from 'next/head';
 import * as React from 'react';
 import '@/lib/env';
@@ -19,6 +20,11 @@ import Speaking from '@/app/components/speaking';
 import Sponsors from '@/app/components/sponsors';
 import useSelectBackground from '@/utils/useSelectBackground';
 
+const firaSans = localFont({
+  src: '../../public/fonts/FiraSans-Regular.ttf',
+  variable: '--font-firaSans',
+});
+
 export default function HomePage() {
   const bgImage = useSelectBackground();
 
@@ -29,7 +35,7 @@ export default function HomePage() {
         style={{ backgroundImage: `url(${bgImage})` }}
       >
         <div
-          className='bg-[#fff] 
+          className={`bg-[#fff] 
                     sm:w-5/6 
                     md:w-3/4 
                     max-w-3xl 
@@ -37,7 +43,7 @@ export default function HomePage() {
                     mb-10 
                     sm:p-[1.5rem] 
                     rounded-lg 
-                    font-primary'
+                    ${firaSans.variable}`}
         >
           <Head>
             <title>Bend DevOps</title>

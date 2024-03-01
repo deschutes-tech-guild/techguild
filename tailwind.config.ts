@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['"Fira Sans"', ...defaultTheme.fontFamily.sans],
+        primary: ['var(--font-firaSans)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: {
