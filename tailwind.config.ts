@@ -4,10 +4,10 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    fontFamily: {
-      primary: ['Fira Sans', ...defaultTheme.fontFamily.sans],
-    },
     extend: {
+      fontFamily: {
+        primary: ['"Fira Sans"', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         primary: {
           // Customize it on globals.css :root
