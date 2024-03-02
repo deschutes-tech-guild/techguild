@@ -11,7 +11,7 @@ export default function About() {
       {size.width != undefined ? (
         size.width <= 1024 ? (
           <div className=' '>
-            <div className=' w-1/3'>
+            <div className=' w-1/3 float-right'>
               <Image
                 className='w-[auto] h-[auto]'
                 src='/images/bdo-logo.webp'
