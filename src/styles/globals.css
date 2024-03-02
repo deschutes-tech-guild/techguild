@@ -27,6 +27,10 @@
   /* #endregion  /**======== Primary Color =========== */
 }
 
+* {
+  font-family: 'Fira Sans';
+}
+
 @layer base {
   /* inter var - latin */
   @font-face {
