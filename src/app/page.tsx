@@ -43,7 +43,9 @@ export default function HomePage() {
                     mb-10 
                     sm:p-[1.5rem] 
                     rounded-lg 
-                    ${firaSans.variable}`}
+                    ${firaSans.variable}
+                    mx-2
+                    `}
         >
           <Head>
             <title>Bend DevOps</title>
