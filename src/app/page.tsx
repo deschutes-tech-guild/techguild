@@ -36,15 +36,15 @@ export default function HomePage() {
       >
         <div
           className={`bg-[#fff] 
-                    sm:w-5/6 
                     md:w-3/4 
                     max-w-3xl 
-                    sm:mt-10 
+                    mt-10 
                     mb-10 
-                    sm:p-[1.5rem] 
+                    p-[1.5rem] 
                     rounded-lg 
                     ${firaSans.variable}
-                    mx-2
+                    m-4
+                    px-4
                     `}
         >
           <Head>
