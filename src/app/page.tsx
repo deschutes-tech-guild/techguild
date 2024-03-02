@@ -45,6 +45,7 @@ export default function HomePage() {
                     ${firaSans.variable}
                     m-4
                     p-4
+                    space-y-4
                     `}
         >
           <Head>
