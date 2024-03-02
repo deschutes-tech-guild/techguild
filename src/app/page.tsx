@@ -44,7 +44,7 @@ export default function HomePage() {
                     rounded-lg 
                     ${firaSans.variable}
                     m-4
-                    px-4
+                    p-4
                     `}
         >
           <Head>
