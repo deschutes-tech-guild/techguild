@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className='space-y-4'>
       <div className='w-full flex flex-row-reverse justify-stretch'>
-        <div className='w-1/3 mx-auto'>
+        <div className='w-1/3 mx-auto flex justify-end'>
           <Image
             className='max-w-[110px] max-h-[115px]'
             src='/images/bdo-logo.webp'
