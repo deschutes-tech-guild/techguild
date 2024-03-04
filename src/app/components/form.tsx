@@ -22,8 +22,7 @@ const Form: NextPage = () => {
       bio?: { value: string };
       summary?: { value: string };
     };
-    // eslint-disable-next-line no-console
-    console.trace(event);
+
     const data = {
       name: target.name.value,
       email: target.email.value,
@@ -42,9 +41,7 @@ const Form: NextPage = () => {
       },
       body: JSON.stringify(data),
     });
-    const result = await response.json();
-    // eslint-disable-next-line no-console
-    console.info(result);
+
     if (response.ok) {
       setEmailSent(true);
     }
