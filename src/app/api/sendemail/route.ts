@@ -14,12 +14,15 @@ export async function POST(req: NextRequest) {
       { status: 400 }
     );
   }
+
   if (!process.env.BUS_EMAIL) {
     return NextResponse.json('BUS_EMAIL not set', { status: 400 });
   }
+
   if (!aws_access_key_id) {
     return NextResponse.json('AWS_ACCESS_KEY_SES not set', { status: 400 });
   }
+
   if (!aws_secret_access_key) {
     return NextResponse.json('AWS_SECRET_ACCESS_KEY_SES not set', {
       status: 400,
