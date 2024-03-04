@@ -21,7 +21,8 @@ export default function Speaking() {
             rel='noopener noreferrer'
           >
             Discord
-          </Link>{' '}
+          </Link>
+          .{' '}
         </p>
       </div>
     </div>
