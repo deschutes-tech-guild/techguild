@@ -12,13 +12,33 @@ pnpm install
 
 ### 2. Run the development server
 
-You can start the server using this command:
+You can start the server using this command in your project root:
 
 ```bash
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `src/app/page.tsx'.
+
+---
+
+## Getting Started using Docker
+
+### 1. Install Docker on your machine
+
+[Get Docker](https://docs.docker.com/get-docker/)
+
+### 2. Run Docker Compose Watch
+
+This will start Docker Compose in watch mode, which will automatically sync your changes locally with your docker container.
+
+```bash
+docker compose watch
+```
+
+Open http://localhost:3000 with your browser to see the result. You can start editing the page by modifying `src/app/page.tsx'.
+
+---
 
 ## Contributing
 
