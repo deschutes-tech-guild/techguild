@@ -5,11 +5,11 @@ FROM node:${NODE_VERSION}-alpine as base
 
 WORKDIR /app
 
-RUN npm install -g pnpm@${PNPM_VERSION}
+RUN npm i -g pnpm@${PNPM_VERSION}
 
 COPY package.json pnpm-lock.yaml ./
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm i --frozen-lockfile
 
 COPY . .
 

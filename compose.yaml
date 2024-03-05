@@ -6,3 +6,10 @@ services:
     build: .
     ports:
       - 3000:3000
+    develop:
+      watch: 
+        - path: ./package.json
+          action: rebuild
+        - path: ./src/app
+          action: sync
+          target: ./app/src/app
