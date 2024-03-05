@@ -1,15 +1,25 @@
-version: '3'
-
 services:
-  app:
+  benddevops:
+    container_name: benddevops
     image: benddevops-dev
-    build: .
-    ports:
-      - 3000:3000
+    build:
+      context: ./
+      dockerfile: Dockerfile
     develop:
       watch: 
         - path: ./package.json
           action: rebuild
-        - path: ./src/app
-          action: sync
-          target: ./app/src/app
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 3000:3000
+    networks:
+      - default
+    environment:
+      - BUS_EMAIL='something@something.com'
+      - AWS_ACCESS_KEY_SES
+      - AWS_SECRET_ACCESS_KEY_SES
+
+networks:
+  default:
+    name: benddevops
