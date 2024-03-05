@@ -3,18 +3,18 @@ ARG PNPM_VERSION=8.15.4
 
 FROM node:${NODE_VERSION}-alpine as base
 
-WORKDIR /home/nslee333/cs/benddevops
+WORKDIR /app
 
 RUN npm install -g pnpm@${PNPM_VERSION}
 
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install
 
-COPY next.config.js ./next.config.js
+RUN pnpm install --frozen-lockfile
 
-COPY /src/app ./app
-COPY public ./public
-COPY /src/styles ./styles
+COPY . .
 
+RUN pnpm build
+
+EXPOSE 3000
 
 CMD ["pnpm", "dev"]
