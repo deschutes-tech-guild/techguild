@@ -1,6 +1,9 @@
 export default function SpeakerForm() {
   return (
     <div className='my-2 p-2 rounded-md border-gray-500 border-2 space-y-4 bg-slate-50'>
+      <label htmlFor='name' className='sr-only'>
+        Name
+      </label>
       <input
         type='text'
         name='name'
@@ -22,6 +25,9 @@ export default function SpeakerForm() {
       />
 
       <div>
+        <label htmlFor='company_sponsor' className='sr-only'>
+          Can your company sponsor?
+        </label>
         <div> Can your company sponsor? </div>
         <select
           name='company_sponsor'
@@ -35,6 +41,9 @@ export default function SpeakerForm() {
         </select>
       </div>
 
+      <label htmlFor='bio' className='sr-only'>
+        Your bio
+      </label>
       <textarea
         placeholder='Your Bio...'
         name='bio'
@@ -42,6 +51,9 @@ export default function SpeakerForm() {
         className='w-full rounded-md min-h-11'
       ></textarea>
 
+      <label htmlFor='summary' className='sr-only'>
+        Summary of your talk
+      </label>
       <textarea
         placeholder='Description of your talk...'
         name='summary'

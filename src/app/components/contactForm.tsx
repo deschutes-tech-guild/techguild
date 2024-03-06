@@ -1,6 +1,9 @@
 export default function ContactForm() {
   return (
     <div className='my-2 p-2 rounded-md border-gray-500 border-2 space-y-4 bg-slate-50'>
+      <label htmlFor='name' className='sr-only'>
+        Name
+      </label>
       <input
         type='text'
         name='name'

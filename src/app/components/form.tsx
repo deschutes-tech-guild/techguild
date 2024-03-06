@@ -71,6 +71,9 @@ const Form: NextPage = () => {
           className='flex flex-col justify-items-start rounded-lg p-4 border-gray-500 border-2 bg-slate-200'
           onSubmit={handleSubmit}
         >
+          <label htmlFor='contact_type' className='sr-only'>
+            Choose a Contact Type
+          </label>
           <select
             name='contact_type'
             id='contact_type'
