@@ -4,6 +4,11 @@ const nextConfig = {
     dirs: ['src'],
   },
 
+  i18n: {
+    locales: ['en', 'esp'],
+    defaultLocale: 'en',
+  },
+
   reactStrictMode: true,
   swcMinify: true,
 
