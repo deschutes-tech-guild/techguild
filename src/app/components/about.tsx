@@ -7,7 +7,7 @@ export default function About() {
       <div className='w-full flex flex-row-reverse justify-stretch'>
         <div className='w-1/3 mx-auto flex justify-end'>
           <Image
-            className='max-h-[115px] max-w-[113px]  h-[115px] w-[113px]'
+            className='max-h-[113px] max-w-[115px] h-[113px] w-[115px]'
             src='/images/bdo-logo.webp'
             alt='Bend DevOps Logo'
             width={150}
