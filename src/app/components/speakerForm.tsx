@@ -21,13 +21,13 @@ export default function SpeakerForm() {
         className='w-full rounded-md h-11'
       />
 
-      <div className=''>
-        <div className=''> Can your company sponsor? </div>
+      <div>
+        <div> Can your company sponsor? </div>
         <select
           name='company_sponsor'
           id='company_sponsor'
           required
-          className=' rounded-md min-h-11'
+          className='rounded-md min-h-11'
         >
           <option></option>
           <option value='Yes'>Yes</option>

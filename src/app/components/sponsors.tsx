@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Sponsors() {
   return (
     <div className='sm:py-2 sm:my-2 max-w-2xl'>
-      <div className=''>
+      <div>
         <h2 className='font-normal sm:py-2 text-2xl'>
           Bend DevOps is proudly sponsored by Snyk!
         </h2>
@@ -31,7 +31,7 @@ export default function Sponsors() {
             />
           </Link>
         </div>
-        <div className='text-lg '>
+        <div className='text-lg'>
           <p>
             We welcome additional sponsors! If you're interested in supporting
             our meetup and connecting with our audience, drop us a note{' '}
