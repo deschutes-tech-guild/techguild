@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function Speaking() {
   return (
-    <div className='sm:py-2 max-w-2xl'>
-      <h2 className='font-normal sm:py-2 text-2xl'>Speaking</h2>
+    <div className='py-2 max-w-2xl'>
+      <h2 className='font-normal py-2 text-2xl'>Speaking</h2>
       <div className='font-[400] text-lg'>
         <p>
           Want to give a talk on what you’re working on? Have a side-project you
