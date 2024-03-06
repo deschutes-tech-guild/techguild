@@ -6,7 +6,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     develop:
-      watch: 
+      watch:
         - path: ./package.json
           action: rebuild
     volumes:
