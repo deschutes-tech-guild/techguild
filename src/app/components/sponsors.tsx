@@ -28,6 +28,7 @@ export default function Sponsors() {
               alt='synk logo'
               height={500}
               width={375}
+              priority
             />
           </Link>
         </div>
