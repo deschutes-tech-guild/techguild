@@ -21,7 +21,7 @@ import Sponsors from '@/app/components/sponsors';
 import useSelectBackground from '@/utils/useSelectBackground';
 
 const firaSans = localFont({
-  src: '../../public/fonts/FiraSans-Regular.ttf',
+  src: '../../public/fonts/FiraSans-Regular.woff2',
   variable: '--font-firaSans',
 });
 
