@@ -12,7 +12,6 @@ export default function About() {
             alt='Bend DevOps Logo'
             width={150}
             height={150}
-            priority
           />
         </div>
         <div className='space-y-4 mr-2'>

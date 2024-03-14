@@ -21,7 +21,6 @@ export default function Community() {
               alt='discord logo'
               width={500}
               height={500}
-              priority
             />
           </Link>
           <Link
@@ -35,7 +34,6 @@ export default function Community() {
               alt='meetup logo'
               width={500}
               height={500}
-              priority
             />
           </Link>
         </div>
