@@ -23,7 +23,6 @@ import useSelectBackground from '@/utils/useSelectBackground';
 const firaSans = localFont({
   src: '../../public/fonts/FiraSans-Regular.ttf',
   variable: '--font-firaSans',
-  display: 'swap',
 });
 
 export default function HomePage() {
