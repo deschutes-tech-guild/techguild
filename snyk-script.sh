@@ -1,6 +1,8 @@
 #!/bin/bash
 # WIP! Haven't tested this script yet.
 
+# ! Add debug logs to make sure it works
+
 # This script is for automating pulling down a Snyk PR
 # and updating pnpm-lock.yaml since Snyk bot dosen't quite support that yet.
 
