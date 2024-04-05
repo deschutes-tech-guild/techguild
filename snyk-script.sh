@@ -10,19 +10,26 @@
 
 echo "hello world"
 
-snyk_branch=$( git branch -r --sort=-authordate | grep "snyk" | head -1)
+snyk_branch=$( git branch -r --sort=-authordate | grep "snyk" | head -1 | cut -c 10-)
+read -rp "Press enter to continue..."
 
 echo "$snyk_branch" "SNYK"
+read -rp "Press enter to continue..."
 
 git switch "$snyk_branch"
+read -rp "Press enter to continue..."
 
 pnpm install
+read -rp "Press enter to continue..."
 
 git commit -am "chore: pnpm install"
+read -rp "Press enter to continue..."
 
 git push
+read -rp "Press enter to continue..."
 
 git checkout main
+read -rp "Press enter to continue..."
 
 # git branch -d "$snyk_branch"
 
