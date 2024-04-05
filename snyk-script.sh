@@ -12,7 +12,8 @@ echo "hello world"
 
 snyk_branch=$( git fetch | grep "^snyk")
 
-echo "$snyk_branch"
+
+echo "$snyk_branch" "SNYK"
 
 git switch "$snyk_branch"
 
