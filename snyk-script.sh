@@ -10,8 +10,7 @@
 
 echo "hello world"
 
-snyk_branch=$( git fetch | grep "^snyk")
-
+snyk_branch=$( git branch -r --sort=-authordate | grep "snyk" | head -1)
 
 echo "$snyk_branch" "SNYK"
 
@@ -25,6 +24,6 @@ git push
 
 git checkout main
 
-git branch -d "$snyk_branch"
+# git branch -d "$snyk_branch"
 
 echo "All done :)"
