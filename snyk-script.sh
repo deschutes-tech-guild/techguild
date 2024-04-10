@@ -7,6 +7,8 @@
 
 echo "hello world"
 
+git fetch
+
 # Grab the latest Snyk branch from a list of remotes.
 snyk_branch=$( git branch -r --sort=-authordate | grep "snyk" | head -1 | cut -c 10-)
 
