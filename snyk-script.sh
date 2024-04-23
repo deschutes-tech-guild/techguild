@@ -5,7 +5,7 @@
 
 # It pulls down the branch, updates lock file, pushes the file, deletes the branch
 
-echo "hello world"
+echo "Booting up..."
 
 git fetch
 
