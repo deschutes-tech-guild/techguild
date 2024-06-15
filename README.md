@@ -1,4 +1,4 @@
-# Bend DevOps Website
+# Deschutes Tech Guild Website
 
 ## Getting Started
 
@@ -57,8 +57,8 @@ Open http://localhost:3000 with your browser to see the result. You can start ed
 
 ### Special thanks to our Contributors!
 
-[@mchineboy](https://github.com/mchineboy)
-
 [@nslee333](https://github.com/nslee333)
+
+[@mchineboy](https://github.com/mchineboy)
 
 [@MrKomputerKid](https://github.com/MrKomputerKid)
