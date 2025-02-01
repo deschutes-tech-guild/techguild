@@ -1,4 +1,6 @@
-# Deschutes Tech Guild Website
+# Please note: this is now an archive as this site is no longer being used.
+
+## Deschutes Tech Guild Website
 
 ## Getting Started
 
